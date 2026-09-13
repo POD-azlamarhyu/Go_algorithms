@@ -14,7 +14,7 @@ func BitSearch[T Data](data *[]T, target T)(*T,*[]T){
 		var sum T
 		subset := make([]T, 0)
 		for i := 0; i < n; i++{
-			if (bit >> i) & 1 == 1 {
+			if bit & (1 << i) != 0{
 				sum += (*data)[i]
 				subset = append(subset,(*data)[i])
 			}
