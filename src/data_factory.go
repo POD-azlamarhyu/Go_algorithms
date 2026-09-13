@@ -14,3 +14,11 @@ func RandomIntSlice(size int) []int {
 	}
 	return slice
 }
+
+func LinearIntSlice(size int) []int {
+	slice := make([]int, size)
+	for i := 0; i < size; i++ {
+		slice[i] = i
+	}
+	return slice
+}
