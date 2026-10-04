@@ -13,6 +13,7 @@ const listDataSize int = 10_000_000_000
 const (
 	bitSearchCommand string = "bit"
 	linearSearchCommand string = "linear"
+	permutationCommand string = "perm"
 )
 
 func main(){
@@ -32,6 +33,8 @@ func main(){
 			services.BitSearchService(randomDataSize)
 		case linearSearchCommand:
 			services.LinearSearchService(bitDataSize)
+		case permutationCommand:
+			services.PermutationSearchService(listDataSize)
 		default:
 			slog.Warn("Unknown command:",slog.String("inputed command:", args[1]))
 			return

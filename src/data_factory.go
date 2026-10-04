@@ -22,3 +22,13 @@ func LinearIntSlice(size int) []int {
 	}
 	return slice
 }
+
+func MultiDimenstionSlice(size int) *[][]int{
+	slice := [][]int{
+		{0, 10, 15, 20},
+		{10, 0, 35, 25},
+		{15, 35, 0, 30},
+		{20, 25, 30, 0},
+	}
+	return &slice
+}
