@@ -1,25 +1,43 @@
 package main
 
 import (
-	"fmt"
-	"go-algorithms/src"
-	"time"
+	"go-algorithms/src/services"
+	"log/slog"
+	"os"
+)
+
+const commandListLength int = 2
+const bitDataSize int = 61
+const listDataSize int = 10_000_000_000
+
+const (
+	bitSearchCommand string = "bit"
+	linearSearchCommand string = "linear"
+	permutationCommand string = "perm"
 )
 
 func main(){
-	fmt.Println("Searching for 3 in a random slice of 100000000 integers")
-	randomDataSize := 1000000000
-	start := time.Now()
+	slog.Info("アルゴリズムのサンプルを実行する CLI", slog.String("module", "main"))
+	args := os.Args
 
-	fmt.Println("Generating random data...")
-	data := src.RandomIntSlice(randomDataSize)
-	fmt.Println(data[:100])
-	result, idx := src.LinearSearch(&data, 3)
-	if result != nil && idx != nil {
-		fmt.Println("Found:", *result, "at index:", *idx)
-	} else {
-		fmt.Println("Not found")
+	if len(args) < commandListLength {
+		slog.Warn("Usage: algorithms <command>")
+		slog.Warn("help - Show this help messages")
+		return
 	}
-	endTime := time.Since(start)
-	fmt.Println("Time taken:", endTime)
+	randomDataSize := listDataSize
+	bitDataSize := bitDataSize
+
+	switch args[1] {
+		case bitSearchCommand:
+			services.BitSearchService(randomDataSize)
+		case linearSearchCommand:
+			services.LinearSearchService(bitDataSize)
+		case permutationCommand:
+			services.PermutationSearchService(listDataSize)
+		default:
+			slog.Warn("Unknown command:",slog.String("inputed command:", args[1]))
+			return
+	}
+	slog.Info("Go cli finished.")
 }
