@@ -30,6 +30,6 @@ func BitSearch[T Data](data *[]T, target T)(*T,*[]T){
 			break
 		}
 	}
-	slog.Info("Finished bit search loop", slog.Any("rsum", rsum), slog.Any("rsubset", rsubset))
+	slog.Info("Finished bit search loop", slog.Any("rsum", *rsum), slog.Any("rsubset", *rsubset))
 	return rsum,rsubset
 }

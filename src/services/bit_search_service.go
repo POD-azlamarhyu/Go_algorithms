@@ -10,10 +10,8 @@ import (
 func BitSearchService(size int){
 	start := time.Now()
 	slog.Info("running bit search service", slog.String("time:", start.String()))
-	randamData := src.RandomIntSlice(size)
 	linearData := src.LinearIntSlice(size)
-	target := 124
-	slog.Info("list data", slog.Any("data", randamData[:size]))
+	target := 56
 	slog.Info("linear data", slog.Any("data", linearData[:size]))
 
 	sum, subset := src.BitSearch(&linearData, target)

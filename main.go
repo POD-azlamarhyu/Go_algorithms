@@ -25,14 +25,13 @@ func main(){
 		slog.Warn("help - Show this help messages")
 		return
 	}
-	randomDataSize := listDataSize
-	bitDataSize := bitDataSize
+
 
 	switch args[1] {
 		case bitSearchCommand:
 			services.BitSearchService(bitDataSize)
 		case linearSearchCommand:
-			services.LinearSearchService(randomDataSize)
+			services.LinearSearchService(listDataSize)
 		case permutationCommand:
 			services.PermutationSearchService(listDataSize)
 		default:
