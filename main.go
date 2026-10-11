@@ -8,7 +8,7 @@ import (
 
 const commandListLength int = 2
 const bitDataSize int = 61
-const listDataSize int = 10_000_000_000
+const listDataSize int = 1_000_000_000
 
 const (
 	bitSearchCommand string = "bit"
