@@ -1,7 +1,7 @@
 package src
 
 import (
-	"fmt"
+	"log/slog"
 )
 
 type Data interface{
@@ -12,7 +12,7 @@ func LinearSearch[T Data](data *[]T, target T) (*T, *T) {
 	d := *data
 	var r *T = nil
 	var idx *T = nil
-	fmt.Println("Searching for", target, "in data of size", len(d))
+	slog.Info("Starting linear search", slog.Any("target", target), slog.Any("data length", len(d)))
 	for i := 0; i < len(d); i++ {
 		if d[i] == target {
 			r = &d[i]

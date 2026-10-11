@@ -8,7 +8,7 @@ import (
 
 const commandListLength int = 2
 const bitDataSize int = 61
-const listDataSize int = 10_000_000_000
+const listDataSize int = 1_000_000_000
 
 const (
 	bitSearchCommand string = "bit"
@@ -25,14 +25,13 @@ func main(){
 		slog.Warn("help - Show this help messages")
 		return
 	}
-	randomDataSize := listDataSize
-	bitDataSize := bitDataSize
+
 
 	switch args[1] {
 		case bitSearchCommand:
-			services.BitSearchService(randomDataSize)
+			services.BitSearchService(bitDataSize)
 		case linearSearchCommand:
-			services.LinearSearchService(bitDataSize)
+			services.LinearSearchService(listDataSize)
 		case permutationCommand:
 			services.PermutationSearchService(listDataSize)
 		default:
