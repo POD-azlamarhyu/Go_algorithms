@@ -30,9 +30,9 @@ func main(){
 
 	switch args[1] {
 		case bitSearchCommand:
-			services.BitSearchService(randomDataSize)
+			services.BitSearchService(bitDataSize)
 		case linearSearchCommand:
-			services.LinearSearchService(bitDataSize)
+			services.LinearSearchService(randomDataSize)
 		case permutationCommand:
 			services.PermutationSearchService(listDataSize)
 		default:
