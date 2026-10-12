@@ -14,6 +14,7 @@ const (
 	bitSearchCommand string = "bit"
 	linearSearchCommand string = "linear"
 	permutationCommand string = "perm"
+	binarySearchCommand string = "binary"
 )
 
 func main(){
@@ -34,6 +35,8 @@ func main(){
 			services.LinearSearchService(listDataSize)
 		case permutationCommand:
 			services.PermutationSearchService(listDataSize)
+		case binarySearchCommand:
+			services.BinarySearchService(listDataSize)
 		default:
 			slog.Warn("Unknown command:",slog.String("inputed command:", args[1]))
 			return
