@@ -5,12 +5,15 @@ import (
 	"log/slog"
 	"time"
 )
+
+const sliseSize int = 100
+
 func BinarySearchService(size int){
 	start := time.Now()
 	slog.Info("running binary search service", slog.String("time:", start.String()))
 	linearData := src.LinearIntSlice(size)
 	target := 56
-	slog.Info("linear data", slog.Any("data", linearData[:size]))
+	slog.Info("linear data", slog.Any("data", linearData[:sliseSize]))
 
 	result := src.BinarySearch(&linearData, target)
 
