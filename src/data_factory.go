@@ -32,3 +32,15 @@ func MultiDimenstionSlice(size int) *[][]int{
 	}
 	return &slice
 }
+
+type Graph struct {
+	vertices int
+	adjList map[int][]int
+}
+
+func NewGraph(vertices int) *Graph {
+	return &Graph{
+		vertices: vertices,
+		adjList:  make(map[int][]int),
+	}
+}
